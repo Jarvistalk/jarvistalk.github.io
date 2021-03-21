@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>打造高性能群晖NAS,H310+i58600T</title>
+    <url>/2021/03/19/%E6%89%93%E9%80%A0%E9%AB%98%E6%80%A7%E8%83%BD%E7%BE%A4%E6%99%96NAS%EF%BC%8CH310+i58600T/</url>
+    <content><![CDATA[<p>前言：刚开始接触群晖nas是19年上的蜗牛的车，当时买的C款J1900的配置。买回来换了益衡电源和静音风扇，稳定运行到今年，发现性能跟不上了，于是萌生了升级配置了念头。在黄鱼上无意间看到了暴风二期j3455主板，果断买回来了。<span id="more"></span>之前蜗牛装的是3617xs半洗白，现在想尝试一下918+毕竟可以硬解，但是这款主板装918+有非常多的问题，折腾了好久还是换成了3617xs。但是心有不甘还是想追求完美。于是秉着三五年不用升级，全部用全新的打造一个高性能的群晖nas</p>
+<p>上配件价格一览表</p>
+<h5 id="CPU-i5-8600T-—-823元（全新散片）"><a href="#CPU-i5-8600T-—-823元（全新散片）" class="headerlink" title="CPU: i5-8600T —- 823元（全新散片）"></a>CPU: i5-8600T —- 823元（全新散片）</h5><p><img src="/images/20210319131704.png"></p>
+<h5 id="主板：华擎H310-ITX-—-569元（全新京东自营）"><a href="#主板：华擎H310-ITX-—-569元（全新京东自营）" class="headerlink" title="主板：华擎H310 ITX —- 569元（全新京东自营）"></a>主板：华擎H310 ITX —- 569元（全新京东自营）</h5><p><img src="/images/20210319132949.png"></p>
+<h5 id="电源：益衡7025B-—-255元（全新）"><a href="#电源：益衡7025B-—-255元（全新）" class="headerlink" title="电源：益衡7025B —- 255元（全新）"></a>电源：益衡7025B —- 255元（全新）</h5><p><img src="/images/20210319133546.png"></p>
+<h5 id="机箱：万由410-—-666元（全新不含电源）"><a href="#机箱：万由410-—-666元（全新不含电源）" class="headerlink" title="机箱：万由410 —- 666元（全新不含电源）"></a>机箱：万由410 —- 666元（全新不含电源）</h5><p><img src="/images/20210319133837.png"></p>
+<h5 id="cpu风扇：ID-COOLING-IS-30-—-84元（全新）"><a href="#cpu风扇：ID-COOLING-IS-30-—-84元（全新）" class="headerlink" title="cpu风扇：ID COOLING IS 30 —- 84元（全新）"></a>cpu风扇：ID COOLING IS 30 —- 84元（全新）</h5><p><img src="/images/20210319134316.png"></p>
+<h5 id="内存条：酷兽DDR4-8G-2666-—-199元（全新）"><a href="#内存条：酷兽DDR4-8G-2666-—-199元（全新）" class="headerlink" title="内存条：酷兽DDR4 8G 2666 —- 199元（全新）"></a>内存条：酷兽DDR4 8G 2666 —- 199元（全新）</h5><p><img src="/images/20210319134651.png"></p>
+<h5 id="总价格：2596元"><a href="#总价格：2596元" class="headerlink" title="总价格：2596元"></a>总价格：2596元</h5><p>以上是配件和价格明细，下面就是装机了，装机很简单就不多介绍了，主要是理线，装机5分钟理线一小时，主要是把cpu风扇前面的空间让出来。</p>
+<h4 id="下面开始装群晖系统"><a href="#下面开始装群晖系统" class="headerlink" title="下面开始装群晖系统"></a>下面开始装群晖系统</h4><p>需要用到的工具：</p>
+<p>diskgenius分区工具</p>
+<p>win32diskimager写盘工具</p>
+<p>DS918+(1.04B)引导 原作者<a href="https://xpenology.com/forum/topic/12952-dsm-62-loader/">地址</a></p>
+<p>上面引导装6.2.3版本无法开启硬解，需要替换驱动包extra.lzma和extra2.lzma附上原作者<a href="https://xpenology.com/forum/topic/28321-driver-extension-jun-103b104b-for-dsm623-for-918-3615xs-3617xs">地址</a></p>
+<p>DS918+(6.2.3-25426)固件</p>
+<p>U盘一个</p>
+<p>这里我打包了所需工具供大家<a href="https://jvs.i55.me:5001/sharing/rtbiAiEDn">下载</a>，引导已替换了驱动包可直接使用</p>
+]]></content>
+      <tags>
+        <tag>nas</tag>
+        <tag>群晖</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>最全的hexo搭建教程</title>
+    <url>/2021/03/09/%E6%9C%80%E5%85%A8%E7%9A%84hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。。<span id="more"></span><br>Hexo搭建步骤<br>    境搭建<br>    安装Hexo<br>    Hexo部署到github</p>
+<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><h4 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1. 安装Git"></a>1. 安装Git</h4><p>windows：到git官网上下载,<a href="https://git-scm.com/downloads">Download git</a>,下载后会有一个Git Bash的命令行工具，以后就用这个工具来使用git。</p>
+<h4 id="2-安装nodejs"><a href="#2-安装nodejs" class="headerlink" title="2. 安装nodejs"></a>2. 安装nodejs</h4><p>Hexo是基于nodeJS编写的，所以需要安装一下nodeJs和里面的npm工具。</p>
+<p>windows：<a href="https://nodejs.org/en/download/">nodejs</a>选择LTS版本就行了。</p>
+<p>安装完后，打开命令行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+<p>检查一下有没有安装成功</p>
+<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>前面git和nodejs安装好后，就可以安装hexo了，你可以先创建一个文件夹blog，然后<code>cd</code>到这个文件夹下（或者在这个文件夹下直接右键git bash打开）。</p>
+<p>输入命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<p>依旧用<code>hexo -v</code>查看一下版本</p>
+<p>至此就全部安装完了。</p>
+<p>接下来初始化一下hexo</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init blog</span><br></pre></td></tr></table></figure>
+
+<p>这个blog可以自己取什么名字都行，然后</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> blog //进入这个blog文件夹</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p>新建完成后，指定文件夹目录下有：</p>
+<ul>
+<li>node_modules: 依赖包</li>
+<li>public：存放生成的页面</li>
+<li>scaffolds：生成文章的一些模板</li>
+<li>source：用来存放你的文章</li>
+<li>themes：主题</li>
+<li>** _config.yml: 博客的配置文件**</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>打开hexo的服务，在浏览器输入localhost:4000就可以看到你生成的博客了。</p>
+<p>使用ctrl+c可以把服务关掉。</p>
+<h3 id="Hexo部署到github"><a href="#Hexo部署到github" class="headerlink" title="Hexo部署到github"></a>Hexo部署到github</h3><h4 id="1-GitHub创建个人仓库"><a href="#1-GitHub创建个人仓库" class="headerlink" title="1. GitHub创建个人仓库"></a>1. GitHub创建个人仓库</h4><p>首先，你先要有一个GitHub账户，去注册一个吧。</p>
+<p>注册完登录后，在GitHub.com中看到一个New repository，新建仓库</p>
+<p>创建一个和你用户名相同的仓库，<a href="http://后面加.github.io/">后面加.github.io</a>，只有这样，将来要部署到GitHub page的时候，才会被识别，<a href="http://也就是xxxx.github.io/">也就是xxxx.github.io</a>，其中xxx就是你注册GitHub的用户名。我这里是已经建过了。</p>
+<p>点击create repository。</p>
+<h4 id="2-生成SSH添加到GitHub"><a href="#2-生成SSH添加到GitHub" class="headerlink" title="2. 生成SSH添加到GitHub"></a>2. 生成SSH添加到GitHub</h4><p>回到你的git bash中，</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;yourname&quot;</span><br><span class="line">git config --global user.email &quot;youremail&quot;</span><br></pre></td></tr></table></figure>
+
+<p>这里的yourname输入你的GitHub用户名，youremail输入你GitHub的邮箱。这样GitHub才能知道你是不是对应它的账户。</p>
+<p>可以用以下两条，检查一下你有没有输对</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
+
+<p>然后创建SSH,一路回车</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;youremail&quot;</span><br></pre></td></tr></table></figure>
+
+<p>这个时候它会告诉你已经生成了.ssh的文件夹。在你的电脑中找到这个文件夹。</p>
+<p>ssh，简单来讲，就是一个秘钥，其中，id_rsa是你这台电脑的私人秘钥，不能给别人看的，id_rsa.pub是公共秘钥，可以随便给别人看。把这个公钥放在GitHub上，这样当你链接GitHub自己的账户时，它就会根据公钥匹配你的私钥，当能够相互匹配时，才能够顺利的通过git上传你的文件到GitHub上。</p>
+<p>而后在GitHub的setting中，找到SSH keys的设置选项，点击New SSH key<br>把你的id_rsa.pub里面的信息复制进去。在gitbash中，查看是否成功</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-将hexo部署到GitHub"><a href="#3-将hexo部署到GitHub" class="headerlink" title="3. 将hexo部署到GitHub"></a>3. 将hexo部署到GitHub</h4><p>这一步，我们就可以将hexo和GitHub关联起来，也就是将hexo生成的文章部署到GitHub上，打开站点配置文件 _config.yml，翻到最后，修改为<br>YourgithubName就是你的GitHub账户</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;YourgithubName&#x2F;YourgithubName.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p>这个时候需要先安装deploy-git ，也就是部署的命令,这样你才能用命令部署到GitHub。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>然后</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>其中 <code>hexo clean</code>清除了你之前生成的东西，也可以不加。<br> <code>hexo generate</code> 顾名思义，生成静态文章，可以用 <code>hexo g</code>缩写<br> <code>hexo deploy</code> 部署文章，可以用<code>hexo d</code>缩写</p>
+<p>注意deploy时可能要你输入username和password。</p>
+<p>过一会儿就可以在<code>http://yourname.github.io</code> 这个网站看到你的博客了！！</p>
+<h4 id="4-设置个人域名"><a href="#4-设置个人域名" class="headerlink" title="4.设置个人域名"></a>4.设置个人域名</h4><p>现在你的个人网站的地址是 yourname.github.io，如果觉得这个网址逼格不太够，这就需要你设置个人域名了。但是需要花钱。</p>
+<p>注册一个阿里云账户,在阿里云上买一个域名，我买的是 jarvistalk.cn，各个后缀的价格不太一样，比如最广泛的.com就比较贵，看个人喜好咯。</p>
+<p>你需要先去进行实名认证,然后在域名控制台中，看到你购买的域名。</p>
+<p>点解析进去，添加CNAME解析。</p>
+<p>登录GitHub，进入之前创建的仓库，点击settings，设置Custom domain，输入你的域名jarvistalk.cn</p>
+<p>然后在你的博客文件source中创建一个名为CNAME文件，不要后缀。写上你的域名。</p>
+<p>最后，在gitbash中，输入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>再打开你的浏览器，输入你自己的域名，就可以看到搭建的网站啦！</p>
+<p>接下来你就可以正式开始写文章了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new papername</span><br></pre></td></tr></table></figure>
+
+<p>然后在source/_post中打开markdown文件，就可以开始编辑了。当你写完的时候，再</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>就可以看到更新了。</p>
+<h3 id="配置部分"><a href="#配置部分" class="headerlink" title="配置部分"></a>配置部分</h3><h4 id="1-hexo基本配置"><a href="#1-hexo基本配置" class="headerlink" title="1.hexo基本配置"></a>1.hexo基本配置</h4><p>在文件根目录下的_config.yml，就是整个hexo框架的配置文件了。可以在里面修改大部分的配置。详细可参考官方的配置描述。</p>
+<h4 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h4><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">title</td>
+<td align="center">网站标题</td>
+</tr>
+<tr>
+<td align="center">subtitle</td>
+<td align="center">网站副标题</td>
+</tr>
+<tr>
+<td align="center">description</td>
+<td align="center">网站描述</td>
+</tr>
+<tr>
+<td align="center">author</td>
+<td align="center">您的名字</td>
+</tr>
+<tr>
+<td align="center">language</td>
+<td align="center">网站使用的语言</td>
+</tr>
+<tr>
+<td align="center">timezone</td>
+<td align="center">网站时区。Hexo 默认使用您电脑的时区。时区列表。比如说：America/New_York, Japan, 和 UTC 。</td>
+</tr>
+</tbody></table>
+<p>其中，<code>description</code>主要用于SEO，告诉搜索引擎一个关于您站点的简单描述，通常建议在其中包含您网站的关键词。<code>author</code>参数用于主题显示文章的作者。</p>
+<p>翻到最下面，中间这些都默认就好了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">theme: landscape</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: &lt;repository url&gt;</span><br><span class="line">  branch: [branch]</span><br></pre></td></tr></table></figure>
+
+<p>theme就是选择什么主题，也就是在theme这个文件夹下，在官网上有很多个主题，默认给你安装的是lanscape这个主题。当你需要更换主题时，在官网上下载，把主题的文件放在theme文件夹下，再修改这个参数就可以了。</p>
+<h4 id="2-更换主题"><a href="#2-更换主题" class="headerlink" title="2.更换主题"></a>2.更换主题</h4><p>如果你觉得默认的<code>landscape</code>主题不好看，那么可以在官网的主题中，选择你喜欢的一个主题进行修改就可以啦。<a href="https://hexo.io/themes/">点这里</a></p>
+<p>这里有200多个主题可以选。不过最受欢迎的就是那么几个，比如<a href="https://github.com/theme-next/hexo-theme-next">NexT主题</a>，非常的简洁好看，大多数人都选择这个，关于这个的教程也比较多。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;next-theme&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
+
+<p>直接在github链接上下载下来，然后放到<code>theme</code>文件夹下就行了，然后再在刚才说的配置文件中把<code>theme</code>换成那个主题文件夹的名字，它就会自动在<code>theme</code>文件夹中搜索你配置的主题。</p>
+<p>而后进入<code>next</code>这个文件夹，可以看到里面也有一个配置文件<code>_config.xml</code>，这个配置文件是修改你整个主题的配置文件。</p>
+<h3 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h3><h4 id="1-menu（菜单栏）"><a href="#1-menu（菜单栏）" class="headerlink" title="1.menu（菜单栏）"></a>1.menu（菜单栏）</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  #home: 首页</span><br><span class="line">  #about: 关于</span><br><span class="line">  #tags: 标签</span><br><span class="line">  #categories: 分类</span><br><span class="line">  #archives: 归档</span><br><span class="line">  #schedule: 日程表</span><br><span class="line">  #sitemap: 站点地图</span><br><span class="line">  #commonweal: 公益404</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-创建“分类”选项"><a href="#2-创建“分类”选项" class="headerlink" title="2.创建“分类”选项"></a>2.创建“分类”选项</h4><p>生成“分类”页并添加tpye属性,进入博客目录。执行命令下方命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo new page categories</span><br></pre></td></tr></table></figure>
+
+<p>categories文件夹下会有index.md这个文件，打开后默认内容是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2019-04-22 14:47:40</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>添加type: “categories”到内容中，添加后是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 分类</span><br><span class="line">date: 2019-04-24 15:30:30</span><br><span class="line">type: categories</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>保存并关闭文件。</p>
+<p>给文章添加“categories”属性</p>
+<p>打开需要添加分类的文章，为其添加categories属性。下方的categories:Hexo表示这篇文章添加到到“Hexo”这个分类。注意：一篇文章只会添加到一个分类中，如果是多个默认放到第一个分类中。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo 添加分类及标签</span><br><span class="line">date: 2017-05-26 12:12:57</span><br><span class="line">categories: Hexo</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>至此，成功给文章添加分类，点击首页的“分类”可以看到该分类下的所有文章。当然，只有添加了categories: xxx的文章才会被收录到首页的“分类”中。</p>
+<h4 id="3-创建“标签”选项"><a href="#3-创建“标签”选项" class="headerlink" title="3. 创建“标签”选项"></a>3. 创建“标签”选项</h4><p>生成“标签”页并添加tpye属性</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo new page tags</span><br></pre></td></tr></table></figure>
+
+<p>在tags文件夹下，找到index.md这个文件，打开后默认内容是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 标签</span><br><span class="line">date: 2019-04-22 14:22:08</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>添加type: “tags”到内容中，添加后是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 标签</span><br><span class="line">date: 2019-04-24 15:40:24</span><br><span class="line">type: tags</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>保存并关闭文件。</p>
+<p>给文章添加“tags”属性,打开需要添加标签的文章，为其添加tags属性。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo 添加分类及标签</span><br><span class="line">date: 2019-04-24 15:40:24</span><br><span class="line">categories: </span><br><span class="line">           - Hexo</span><br><span class="line">tags:</span><br><span class="line">           - 博客</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-添加搜索"><a href="#4-添加搜索" class="headerlink" title="4.添加搜索"></a>4.添加搜索</h4><p>安装Local Search插件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb</span><br></pre></td></tr></table></figure>
+
+<p>在themes\next\ _config.yml</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Local Search</span><br><span class="line"># Dependencies: https:&#x2F;&#x2F;github.com&#x2F;next-theme&#x2F;hexo-generator-searchdb</span><br><span class="line">local_search:</span><br><span class="line">  enable: true为开启false为关闭</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-设置圆形头像，点击旋转"><a href="#5-设置圆形头像，点击旋转" class="headerlink" title="5.设置圆形头像，点击旋转"></a>5.设置圆形头像，点击旋转</h4><p>把你的要加的头像修整好，最好是像素200×200的，复制粘贴到\themes\next\source\images文件下，图片名称为：avatar.gif</p>
+<p>在themes\next\ _config.yml</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">avatar:</span><br><span class="line">  # Replace the default image and set the url here.</span><br><span class="line">  url: &#x2F;images&#x2F;avatar.gif</span><br><span class="line">  # If true, the avatar will be dispalyed in circle.</span><br><span class="line">  rounded: true</span><br><span class="line">  # If true, the avatar will be rotated with the cursor.</span><br><span class="line">  rotated: true</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-访问统计、阅读统计"><a href="#6-访问统计、阅读统计" class="headerlink" title="6.访问统计、阅读统计"></a>6.访问统计、阅读统计</h4><p>在themes\next\ _config.yml</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">busuanzi_count:</span><br><span class="line">  enable: true #false改为true</span><br><span class="line">  total_visitors: true</span><br><span class="line">  total_visitors_icon: fa fa-user</span><br><span class="line">  total_views: true</span><br><span class="line">  total_views_icon: fa fa-eye</span><br><span class="line">  post_views: true</span><br><span class="line">  post_views_icon: far fa-eye</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-添加gitalk评论"><a href="#7-添加gitalk评论" class="headerlink" title="7.添加gitalk评论"></a>7.添加gitalk评论</h4><p>next已经集成gitalk评论</p>
+<p>首先创建个OAuth Apps点<a href="https://github.com/settings/applications/new">这里</a></p>
+<img src="/images/20210317150729.png" style="zoom:50%;" />
+
+<p>创建完有个Client ID和Client secrets下面会用到</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gitalk:</span><br><span class="line">  enable: true #false改为true</span><br><span class="line">  github_id: github用户名</span><br><span class="line">  repo: 仓库名 yourname.github.io</span><br><span class="line">  client_id: 填写上面的Client ID</span><br><span class="line">  client_secret: 同理</span><br><span class="line">  admin_user: github用户名</span><br><span class="line">  distraction_free_mode: false</span><br><span class="line">  # When the official proxy is not available, you can change it to your own proxy address</span><br><span class="line">  proxy: https:&#x2F;&#x2F;cors-anywhere.herokuapp.com&#x2F;https:&#x2F;&#x2F;github.com&#x2F;login&#x2F;oauth&#x2F;access_token   # This is official proxy adress</span><br><span class="line">  # Gitalk&#39;s display language depends on user&#39;s browser or system environment</span><br><span class="line">  # If you want everyone visiting your site to see a uniform language, you can set a       force language value</span><br><span class="line">  # Available values: en | es-ES | fr | ru | zh-CN | zh-TW</span><br><span class="line">  language: zh-CN</span><br></pre></td></tr></table></figure>
+
+<p>保存三连，hexo c  hexo g  hexo d 首次需要初始化lssues</p>
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+</search>
