@@ -23,28 +23,41 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"jarvistalk.cn","root":"/","images":"/images","scheme":"Pisces","version":"8.2.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jarvis Talk">
-<meta property="og:url" content="https://jarvistalk.cn/index.html">
+<meta name="description" content="前言：刚开始接触群晖nas是19年上的蜗牛的车，当时买的C款J1900的配置。买回来换了益衡电源和静音风扇，稳定运行到今年，发现性能跟不上了，于是萌生了升级配置了念头。在黄鱼上无意间看到了暴风二期j3455主板，果断买回来了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="打造高性能群晖NAS，H310+i58600T">
+<meta property="og:url" content="https://jarvistalk.cn/2021/03/22/%E6%89%93%E9%80%A0%E9%AB%98%E6%80%A7%E8%83%BD%E7%BE%A4%E6%99%96NAS%EF%BC%8CH310-i58600T/index.html">
 <meta property="og:site_name" content="Jarvis Talk">
+<meta property="og:description" content="前言：刚开始接触群晖nas是19年上的蜗牛的车，当时买的C款J1900的配置。买回来换了益衡电源和静音风扇，稳定运行到今年，发现性能跟不上了，于是萌生了升级配置了念头。在黄鱼上无意间看到了暴风二期j3455主板，果断买回来了。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/images/20210319131704.png">
+<meta property="og:image" content="c:/images/20210319132949.png">
+<meta property="og:image" content="c:/images/20210319133546.png">
+<meta property="og:image" content="c:/images/20210319133837.png">
+<meta property="og:image" content="c:/images/20210319134316.png">
+<meta property="og:image" content="c:/images/20210319134651.png">
+<meta property="article:published_time" content="2021-03-22T02:43:19.000Z">
+<meta property="article:modified_time" content="2021-03-22T02:50:35.949Z">
 <meta property="article:author" content="Jarvis Talk">
+<meta property="article:tag" content="nas">
+<meta property="article:tag" content="群晖">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/images/20210319131704.png">
 
 
-<link rel="canonical" href="https://jarvistalk.cn/">
+<link rel="canonical" href="https://jarvistalk.cn/2021/03/22/%E6%89%93%E9%80%A0%E9%AB%98%E6%80%A7%E8%83%BD%E7%BE%A4%E6%99%96NAS%EF%BC%8CH310-i58600T/">
 
 
 <script class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
-<title>Jarvis Talk</title>
+<title>打造高性能群晖NAS，H310+i58600T | Jarvis Talk</title>
   
 
 
@@ -167,7 +180,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -180,6 +193,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#CPU-i5-8600T-%E2%80%94-823%E5%85%83%EF%BC%88%E5%85%A8%E6%96%B0%E6%95%A3%E7%89%87%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">CPU: i5-8600T —- 823元（全新散片）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%BB%E6%9D%BF%EF%BC%9A%E5%8D%8E%E6%93%8EH310-ITX-%E2%80%94-569%E5%85%83%EF%BC%88%E5%85%A8%E6%96%B0%E4%BA%AC%E4%B8%9C%E8%87%AA%E8%90%A5%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">主板：华擎H310 ITX —- 569元（全新京东自营）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%B5%E6%BA%90%EF%BC%9A%E7%9B%8A%E8%A1%A17025B-%E2%80%94-255%E5%85%83%EF%BC%88%E5%85%A8%E6%96%B0%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">电源：益衡7025B —- 255元（全新）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%BA%E7%AE%B1%EF%BC%9A%E4%B8%87%E7%94%B1410-%E2%80%94-666%E5%85%83%EF%BC%88%E5%85%A8%E6%96%B0%E4%B8%8D%E5%90%AB%E7%94%B5%E6%BA%90%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">机箱：万由410 —- 666元（全新不含电源）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#cpu%E9%A3%8E%E6%89%87%EF%BC%9AID-COOLING-IS-30-%E2%80%94-84%E5%85%83%EF%BC%88%E5%85%A8%E6%96%B0%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">cpu风扇：ID COOLING IS 30 —- 84元（全新）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E6%9D%A1%EF%BC%9A%E9%85%B7%E5%85%BDDDR4-8G-2666-%E2%80%94-199%E5%85%83%EF%BC%88%E5%85%A8%E6%96%B0%EF%BC%89"><span class="nav-number">6.</span> <span class="nav-text">内存条：酷兽DDR4 8G 2666 —- 199元（全新）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%80%BB%E4%BB%B7%E6%A0%BC%EF%BC%9A2596%E5%85%83"><span class="nav-number">7.</span> <span class="nav-text">总价格：2596元</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8B%E9%9D%A2%E5%BC%80%E5%A7%8B%E8%A3%85%E7%BE%A4%E6%99%96%E7%B3%BB%E7%BB%9F"><span class="nav-number"></span> <span class="nav-text">下面开始装群晖系统</span></a></div>
         </div>
         <!--/noindex-->
 
@@ -241,16 +255,17 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://jarvistalk.cn/2021/03/22/%E6%89%93%E9%80%A0%E9%AB%98%E6%80%A7%E8%83%BD%E7%BE%A4%E6%99%96NAS%EF%BC%8CH310-i58600T/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -263,9 +278,9 @@
       <meta itemprop="name" content="Jarvis Talk">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/03/22/%E6%89%93%E9%80%A0%E9%AB%98%E6%80%A7%E8%83%BD%E7%BE%A4%E6%99%96NAS%EF%BC%8CH310-i58600T/" class="post-title-link" itemprop="url">打造高性能群晖NAS，H310+i58600T</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          打造高性能群晖NAS，H310+i58600T
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -280,84 +295,13 @@
     </span>
 
   
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>前言：刚开始接触群晖nas是19年上的蜗牛的车，当时买的C款J1900的配置。买回来换了益衡电源和静音风扇，稳定运行到今年，发现性能跟不上了，于是萌生了升级配置了念头。在黄鱼上无意间看到了暴风二期j3455主板，果断买回来了。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/22/%E6%89%93%E9%80%A0%E9%AB%98%E6%80%A7%E8%83%BD%E7%BE%A4%E6%99%96NAS%EF%BC%8CH310-i58600T/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jarvistalk.cn/2021/03/09/%E6%9C%80%E5%85%A8%E7%9A%84hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jarvis Talk">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jarvis Talk">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/03/09/%E6%9C%80%E5%85%A8%E7%9A%84hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">最全的hexo搭建教程</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-eye"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-03-09 11:11:16" itemprop="dateCreated datePublished" datetime="2021-03-09T11:11:16+08:00">2021-03-09</time>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-03-19 09:57:04" itemprop="dateModified" datetime="2021-03-19T09:57:04+08:00">2021-03-19</time>
-      </span>
-
-  
 </div>
 
         </div>
@@ -367,16 +311,24 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/09/%E6%9C%80%E5%85%A8%E7%9A%84hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+        <p>前言：刚开始接触群晖nas是19年上的蜗牛的车，当时买的C款J1900的配置。买回来换了益衡电源和静音风扇，稳定运行到今年，发现性能跟不上了，于是萌生了升级配置了念头。在黄鱼上无意间看到了暴风二期j3455主板，果断买回来了。<span id="more"></span>之前蜗牛装的是3617xs半洗白，现在想尝试一下918+毕竟可以硬解，但是这款主板装918+有非常多的问题，折腾了好久还是换成了3617xs。但是心有不甘还是想追求完美。于是秉着三五年不用升级，全部用全新的打造一个高性能的群晖nas</p>
+<p>上配件价格一览表</p>
+<h5 id="CPU-i5-8600T-—-823元（全新散片）"><a href="#CPU-i5-8600T-—-823元（全新散片）" class="headerlink" title="CPU: i5-8600T —- 823元（全新散片）"></a>CPU: i5-8600T —- 823元（全新散片）</h5><p><img src="C:/images/20210319131704.png"></p>
+<h5 id="主板：华擎H310-ITX-—-569元（全新京东自营）"><a href="#主板：华擎H310-ITX-—-569元（全新京东自营）" class="headerlink" title="主板：华擎H310 ITX —- 569元（全新京东自营）"></a>主板：华擎H310 ITX —- 569元（全新京东自营）</h5><p><img src="C:/images/20210319132949.png"></p>
+<h5 id="电源：益衡7025B-—-255元（全新）"><a href="#电源：益衡7025B-—-255元（全新）" class="headerlink" title="电源：益衡7025B —- 255元（全新）"></a>电源：益衡7025B —- 255元（全新）</h5><p><img src="C:/images/20210319133546.png"></p>
+<h5 id="机箱：万由410-—-666元（全新不含电源）"><a href="#机箱：万由410-—-666元（全新不含电源）" class="headerlink" title="机箱：万由410 —- 666元（全新不含电源）"></a>机箱：万由410 —- 666元（全新不含电源）</h5><p><img src="C:/images/20210319133837.png"></p>
+<h5 id="cpu风扇：ID-COOLING-IS-30-—-84元（全新）"><a href="#cpu风扇：ID-COOLING-IS-30-—-84元（全新）" class="headerlink" title="cpu风扇：ID COOLING IS 30 —- 84元（全新）"></a>cpu风扇：ID COOLING IS 30 —- 84元（全新）</h5><p><img src="C:/images/20210319134316.png"></p>
+<h5 id="内存条：酷兽DDR4-8G-2666-—-199元（全新）"><a href="#内存条：酷兽DDR4-8G-2666-—-199元（全新）" class="headerlink" title="内存条：酷兽DDR4 8G 2666 —- 199元（全新）"></a>内存条：酷兽DDR4 8G 2666 —- 199元（全新）</h5><p><img src="C:/images/20210319134651.png"></p>
+<h5 id="总价格：2596元"><a href="#总价格：2596元" class="headerlink" title="总价格：2596元"></a>总价格：2596元</h5><p>以上是配件和价格明细，下面就是装机了，装机很简单就不多介绍了，主要是理线，装机5分钟理线一小时，主要是把cpu风扇前面的空间让出来。</p>
+<h4 id="下面开始装群晖系统"><a href="#下面开始装群晖系统" class="headerlink" title="下面开始装群晖系统"></a>下面开始装群晖系统</h4><p>需要用到的工具：</p>
+<p>diskgenius分区工具</p>
+<p>win32diskimager写盘工具</p>
+<p>DS918+(1.04B)引导 原作者<a target="_blank" rel="noopener" href="https://xpenology.com/forum/topic/12952-dsm-62-loader/">地址</a></p>
+<p>上面引导装6.2.3版本无法开启硬解，需要替换驱动包extra.lzma和extra2.lzma附上原作者<a target="_blank" rel="noopener" href="https://xpenology.com/forum/topic/28321-driver-extension-jun-103b104b-for-dsm623-for-918-3615xs-3617xs">地址</a></p>
+<p>DS918+(6.2.3-25426)固件</p>
+<p>U盘一个</p>
+<p>这里我打包了所需工具供大家<a target="_blank" rel="noopener" href="https://jvs.i55.me:5001/sharing/uh6zw20mm">下载</a>，引导已替换了驱动包可直接使用</p>
+
     </div>
 
     
@@ -384,8 +336,39 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Jarvis Talk
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://jarvistalk.cn/2021/03/22/%E6%89%93%E9%80%A0%E9%AB%98%E6%80%A7%E8%83%BD%E7%BE%A4%E6%99%96NAS%EF%BC%8CH310-i58600T/" title="打造高性能群晖NAS，H310+i58600T">https://jarvistalk.cn/2021/03/22/打造高性能群晖NAS，H310-i58600T/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/nas/" rel="tag"><i class="fa fa-tag"></i> nas</a>
+              <a href="/tags/%E7%BE%A4%E6%99%96/" rel="tag"><i class="fa fa-tag"></i> 群晖</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/03/09/%E6%9C%80%E5%85%A8%E7%9A%84hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" rel="prev" title="最全的hexo搭建教程">
+                  <i class="fa fa-chevron-left"></i> 最全的hexo搭建教程
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
     </footer>
   </article>
 </div>
@@ -394,6 +377,8 @@
 
 
 
+
+    <div class="comments gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -472,6 +457,26 @@
 
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.css">
+
+<script>
+NexT.utils.loadComments('.gitalk-container', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '15d571627b8463411a74',
+      clientSecret: '58b3fd4271fd42d19004a5c567e0c397e894cf48',
+      repo        : 'jarvistalk.github.io',
+      owner       : 'jarvistalk',
+      admin       : ['jarvistalk'],
+      id          : 'd488ce0bf8c4e2029b576af6bac58b60',
+      proxy       : 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token',
+        language: 'zh-CN',
+      distractionFreeMode: false
+    });
+    gitalk.render(document.querySelector('.gitalk-container'));
+  }, window.Gitalk);
+});
+</script>
 
 </body>
 </html>
