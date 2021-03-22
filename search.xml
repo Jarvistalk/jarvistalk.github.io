@@ -1,32 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>打造高性能群晖NAS，H310+i58600T</title>
-    <url>/2021/03/19/%E6%89%93%E9%80%A0%E9%AB%98%E6%80%A7%E8%83%BD%E7%BE%A4%E6%99%96NAS%EF%BC%8CH310+i58600T/</url>
-    <content><![CDATA[<p>前言：刚开始接触群晖nas是19年上的蜗牛的车，当时买的C款J1900的配置。买回来换了益衡电源和静音风扇，稳定运行到今年，发现性能跟不上了，于是萌生了升级配置了念头。在黄鱼上无意间看到了暴风二期j3455主板，果断买回来了。<span id="more"></span>之前蜗牛装的是3617xs半洗白，现在想尝试一下918+毕竟可以硬解，但是这款主板装918+有非常多的问题，折腾了好久还是换成了3617xs。但是心有不甘还是想追求完美。于是秉着三五年不用升级，全部用全新的打造一个高性能的群晖nas</p>
-<p>上配件价格一览表</p>
-<h5 id="CPU-i5-8600T-—-823元（全新散片）"><a href="#CPU-i5-8600T-—-823元（全新散片）" class="headerlink" title="CPU: i5-8600T —- 823元（全新散片）"></a>CPU: i5-8600T —- 823元（全新散片）</h5><p><img src="/images/20210319131704.png"></p>
-<h5 id="主板：华擎H310-ITX-—-569元（全新京东自营）"><a href="#主板：华擎H310-ITX-—-569元（全新京东自营）" class="headerlink" title="主板：华擎H310 ITX —- 569元（全新京东自营）"></a>主板：华擎H310 ITX —- 569元（全新京东自营）</h5><p><img src="/images/20210319132949.png"></p>
-<h5 id="电源：益衡7025B-—-255元（全新）"><a href="#电源：益衡7025B-—-255元（全新）" class="headerlink" title="电源：益衡7025B —- 255元（全新）"></a>电源：益衡7025B —- 255元（全新）</h5><p><img src="/images/20210319133546.png"></p>
-<h5 id="机箱：万由410-—-666元（全新不含电源）"><a href="#机箱：万由410-—-666元（全新不含电源）" class="headerlink" title="机箱：万由410 —- 666元（全新不含电源）"></a>机箱：万由410 —- 666元（全新不含电源）</h5><p><img src="/images/20210319133837.png"></p>
-<h5 id="cpu风扇：ID-COOLING-IS-30-—-84元（全新）"><a href="#cpu风扇：ID-COOLING-IS-30-—-84元（全新）" class="headerlink" title="cpu风扇：ID COOLING IS 30 —- 84元（全新）"></a>cpu风扇：ID COOLING IS 30 —- 84元（全新）</h5><p><img src="/images/20210319134316.png"></p>
-<h5 id="内存条：酷兽DDR4-8G-2666-—-199元（全新）"><a href="#内存条：酷兽DDR4-8G-2666-—-199元（全新）" class="headerlink" title="内存条：酷兽DDR4 8G 2666 —- 199元（全新）"></a>内存条：酷兽DDR4 8G 2666 —- 199元（全新）</h5><p><img src="/images/20210319134651.png"></p>
-<h5 id="总价格：2596元"><a href="#总价格：2596元" class="headerlink" title="总价格：2596元"></a>总价格：2596元</h5><p>以上是配件和价格明细，下面就是装机了，装机很简单就不多介绍了，主要是理线，装机5分钟理线一小时，主要是把cpu风扇前面的空间让出来。</p>
-<h4 id="下面开始装群晖系统"><a href="#下面开始装群晖系统" class="headerlink" title="下面开始装群晖系统"></a>下面开始装群晖系统</h4><p>需要用到的工具：</p>
-<p>diskgenius分区工具</p>
-<p>win32diskimager写盘工具</p>
-<p>DS918+(1.04B)引导 原作者<a href="https://xpenology.com/forum/topic/12952-dsm-62-loader/">地址</a></p>
-<p>上面引导装6.2.3版本无法开启硬解，需要替换驱动包extra.lzma和extra2.lzma附上原作者<a href="https://xpenology.com/forum/topic/28321-driver-extension-jun-103b104b-for-dsm623-for-918-3615xs-3617xs">地址</a></p>
-<p>DS918+(6.2.3-25426)固件</p>
-<p>U盘一个</p>
-<p>这里我打包了所需工具供大家<a href="https://jvs.i55.me:5001/sharing/uh6zw20mm">下载</a>，引导已替换了驱动包可直接使用</p>
-]]></content>
-      <tags>
-        <tag>nas</tag>
-        <tag>群晖</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>最全的hexo搭建教程</title>
     <url>/2021/03/09/%E6%9C%80%E5%85%A8%E7%9A%84hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。。<span id="more"></span><br>Hexo搭建步骤<br>    境搭建<br>    安装Hexo<br>    Hexo部署到github</p>
