@@ -203,7 +203,20 @@
 <p>上面引导装6.2.3版本无法开启硬解，需要替换驱动包extra.lzma和extra2.lzma附上原作者<a href="https://xpenology.com/forum/topic/28321-driver-extension-jun-103b104b-for-dsm623-for-918-3615xs-3617xs">地址</a></p>
 <p>DS918+(6.2.3-25426)固件</p>
 <p>U盘一个</p>
+<p>U盘芯片检测工具ChipGenius</p>
 <p>这里我打包了所需工具供大家<a href="https://jvs.i55.me:5001/sharing/uh6zw20mm">下载</a>，引导已替换了驱动包可直接使用</p>
+<h5 id="制作U盘引导"><a href="#制作U盘引导" class="headerlink" title="制作U盘引导"></a>制作U盘引导</h5><p>1.打开U盘芯片检测工具ChipGenius查看U盘的VID和PID</p>
+<img src="../images/20210322133736.png" style="zoom:50%;" />
+
+<p>2.打开DG分区工具选择磁盘—打开虚拟磁盘文件—选择引导文件</p>
+<img src="../images/20210322134858.png" style="zoom: 33%;" />
+
+<p>3.选择ESP分区选择grub文件夹，选择grub.cfg文件右击复制到桌面</p>
+<p><img src="../images/20210322135400.png"></p>
+<p>4.用记事本打开grub.cfg找到VID和PID替换U盘的VID和PID，需要洗白的这里把sn和mac也替换一下</p>
+<p><img src="../images/20210322135700.png"></p>
+<p>5.回到DG分区工具右击空白处选择复制文件到当前分区，选择grub.cfg文件替换掉之前的grub.cfg文件</p>
+<p>至此U盘引导制作完成</p>
 ]]></content>
       <tags>
         <tag>nas</tag>
