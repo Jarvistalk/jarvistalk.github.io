@@ -267,7 +267,7 @@
   <entry>
     <title>黑群晖6.2.3如何启用核显硬解</title>
     <url>/2021/03/24/%E9%BB%91%E7%BE%A4%E6%99%966-2-3%E5%A6%82%E4%BD%95%E5%90%AF%E7%94%A8%E6%A0%B8%E6%98%BE%E7%A1%AC%E8%A7%A3/</url>
-    <content><![CDATA[<p>前言：黑群晖升级到6.2.3后默认不加载核显驱动的，下面介绍怎么开启核显</p>
+    <content><![CDATA[<p>前言：黑群晖升级到6.2.3后默认不加载核显驱动的，下面介绍怎么开启核显<span id="more"></span></p>
 <p>准备工具：</p>
 <p>DS918+引导</p>
 <p>驱动包extra.lzma和extra2.lzma</p>
