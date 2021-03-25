@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jarvistalk.cn","root":"/","images":"/images","scheme":"Pisces","version":"8.2.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="开启esxi虚拟主机隐藏的rdm硬盘直通功能，让我们的硬盘通过千兆网口的传输速度恢复原本应该有的速率，让我们在虚拟机中建立的NAS或共享文件直接的传输速度不再受到限制。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ESXI开启RDM硬盘直通,让传输速率恢复千兆">
+<meta property="og:url" content="https://jarvistalk.cn/2021/03/23/ESXI%E5%BC%80%E5%90%AFRDM%E7%A1%AC%E7%9B%98%E7%9B%B4%E9%80%9A-%E8%AE%A9%E4%BC%A0%E8%BE%93%E9%80%9F%E7%8E%87%E6%81%A2%E5%A4%8D%E5%8D%83%E5%85%86/index.html">
+<meta property="og:site_name" content="Jarvis Talk">
+<meta property="og:description" content="开启esxi虚拟主机隐藏的rdm硬盘直通功能，让我们的硬盘通过千兆网口的传输速度恢复原本应该有的速率，让我们在虚拟机中建立的NAS或共享文件直接的传输速度不再受到限制。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jarvistalk.cn/images/20210323134103.png">
+<meta property="og:image" content="https://jarvistalk.cn/images/69575244.png">
+<meta property="og:image" content="https://jarvistalk.cn/images/982545544141.png">
+<meta property="og:image" content="https://jarvistalk.cn/images/25825684525-1616478877421.png">
+<meta property="og:image" content="https://jarvistalk.cn/images/658439720.png">
+<meta property="og:image" content="https://jarvistalk.cn/images/781125878.png">
+<meta property="og:image" content="https://jarvistalk.cn/images/578962163855.png">
+<meta property="article:published_time" content="2021-03-23T05:38:12.000Z">
+<meta property="article:modified_time" content="2021-03-23T06:05:05.328Z">
+<meta property="article:author" content="Jarvis Talk">
+<meta property="article:tag" content="esxi">
+<meta property="article:tag" content="硬盘直通">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jarvistalk.cn/images/20210323134103.png">
+
+
+<link rel="canonical" href="https://jarvistalk.cn/2021/03/23/ESXI%E5%BC%80%E5%90%AFRDM%E7%A1%AC%E7%9B%98%E7%9B%B4%E9%80%9A-%E8%AE%A9%E4%BC%A0%E8%BE%93%E9%80%9F%E7%8E%87%E6%81%A2%E5%A4%8D%E5%8D%83%E5%85%86/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>ESXI开启RDM硬盘直通,让传输速率恢复千兆 | Jarvis Talk</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Jarvis Talk</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%A6%96%E5%85%88%E5%BC%80%E5%90%AFESXI%E7%9A%84ssh%E5%8A%9F%E8%83%BD"><span class="nav-number">1.</span> <span class="nav-text">一、首先开启ESXI的ssh功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%94%A8DiskGenius%E8%BD%AF%E4%BB%B6%E5%88%A0%E9%99%A4%E4%BD%A0%E9%9C%80%E8%A6%81%E6%8C%82%E8%BD%BD%E7%9A%84SATA%E7%A1%AC%E7%9B%98%EF%BC%8C%E6%B3%A8%EF%BC%9A%E5%88%A0%E9%99%A4%E5%AE%8C%E4%BF%9D%E5%AD%98%E5%8D%B3%E5%8F%AF%EF%BC%8C%E5%8D%83%E4%B8%87%E4%B8%8D%E8%A6%81%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%88%86%E5%8C%BA"><span class="nav-number">2.</span> <span class="nav-text">二、用DiskGenius软件删除你需要挂载的SATA硬盘，注：删除完保存即可，千万不要格式化分区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E8%BF%9B%E5%85%A5ESXI%E7%BD%91%E9%A1%B5%E7%AB%AF%E5%90%8E%E5%8F%B0%E7%95%8C%E9%9D%A2%E6%9F%A5%E7%9C%8B%E7%A1%AC%E7%9B%98%E4%BF%A1%E6%81%AF"><span class="nav-number">3.</span> <span class="nav-text">三、进入ESXI网页端后台界面查看硬盘信息</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E9%9C%80%E8%A6%81%E5%BC%80%E5%90%AFRDM%E7%9A%84%E7%A1%AC%E7%9B%98%EF%BC%8C%E4%B9%9F%E5%B0%B1%E6%98%AF%E6%88%91%E4%BB%AC%E4%B8%8A%E4%B8%80%E6%AD%A5%E5%88%A0%E9%99%A4%E7%9A%84%E9%82%A3%E4%B8%AA%E6%9C%AA%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%9A%84%E7%A1%AC%E7%9B%98"><span class="nav-number">3.1.</span> <span class="nav-text">查询需要开启RDM的硬盘，也就是我们上一步删除的那个未格式化的硬盘</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%91%A0%E7%82%B9%E5%87%BB-%E5%AD%98%E5%82%A8-gt-gt-%E8%AE%BE%E5%A4%87-gt-gt-%E9%80%89%E6%8B%A9%E7%A1%AC%E7%9B%98"><span class="nav-number">3.2.</span> <span class="nav-text">①点击 存储&gt;&gt;设备&gt;&gt;选择硬盘</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%91%A1%E6%9F%A5%E6%89%BE%E6%9C%AA%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%A1%AC%E7%9B%98%E6%A0%87%E8%AF%86%E7%AC%A6%EF%BC%8C%E6%8B%AC%E5%8F%B7%E9%87%8C%E9%9D%A2%E8%BF%99%E4%B8%80%E4%B8%B2%EF%BC%8C%E6%88%91%E7%9A%84%E4%B8%BAt10-ATA-WDC-WD20EURS2D63S48Y0-WD2DWCAZAJ063809"><span class="nav-number">3.3.</span> <span class="nav-text">②查找未格式化硬盘标识符，括号里面这一串，我的为t10.ATA_____WDC_WD20EURS2D63S48Y0_________________________WD2DWCAZAJ063809</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%91%A2%E6%9F%A5%E6%89%BEESXI%E7%B3%BB%E7%BB%9F%E7%9B%98%E7%9A%84%E8%B7%AF%E5%BE%84%EF%BC%8C%E7%82%B9%E5%87%BB-%E5%AD%98%E5%82%A8-gt-gt-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-gt-gt-%E9%80%89%E6%8B%A9ESXI%E7%9A%84%E7%B3%BB%E7%BB%9F%E7%9B%98%EF%BC%8C%E6%88%91%E8%BF%99%E9%87%8C%E7%9A%84%E8%B7%AF%E5%BE%84%E4%B8%BA-vmfs-volumes-5ac791f9-74172f6b-18d1-e43a6e0448e3"><span class="nav-number">3.4.</span> <span class="nav-text">③查找ESXI系统盘的路径，点击 存储&gt;&gt;数据存储&gt;&gt;选择ESXI的系统盘，我这里的路径为&#x2F;vmfs&#x2F;volumes&#x2F;5ac791f9-74172f6b-18d1-e43a6e0448e3</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E7%99%BB%E9%99%86ESXI%E7%9A%84SSH%E8%BF%9B%E8%A1%8C%E9%85%8D%E7%BD%AERDM"><span class="nav-number">4.</span> <span class="nav-text">四、登陆ESXI的SSH进行配置RDM</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E5%91%BD%E4%BB%A4-%E5%9B%9E%E8%BD%A6%E6%97%A0%E4%BB%BB%E4%BD%95%E6%8F%90%E7%A4%BA%E8%AF%B4%E6%98%8E%E5%B7%B2%E7%BB%8F%E9%85%8D%E7%BD%AE%E6%88%90%E5%8A%9F"><span class="nav-number">4.1.</span> <span class="nav-text">输入命令,回车无任何提示说明已经配置成功</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%88%91%E8%BF%99%E9%87%8C%E5%B0%B1%E6%8A%8A%E8%BF%99%E4%B8%AA%E7%9B%98%E5%91%BD%E5%90%8D%E4%B8%BADSM-vmdk"><span class="nav-number">4.2.</span> <span class="nav-text">我这里就把这个盘命名为DSM.vmdk</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%9F%A5%E7%9C%8BESXI%E7%B3%BB%E7%BB%9F%E7%9B%98%E9%87%8C%E6%98%AF%E5%90%A6%E5%B7%B2%E7%BB%8F%E6%9C%89DSM-vmdk%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">五、查看ESXI系统盘里是否已经有DSM.vmdk这个文件</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jarvis Talk"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Jarvis Talk</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jarvistalk" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jarvistalk" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:jarvistalk01@gmail.com" title="E-Mail → mailto:jarvistalk01@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jarvistalk.cn/2021/03/23/ESXI%E5%BC%80%E5%90%AFRDM%E7%A1%AC%E7%9B%98%E7%9B%B4%E9%80%9A-%E8%AE%A9%E4%BC%A0%E8%BE%93%E9%80%9F%E7%8E%87%E6%81%A2%E5%A4%8D%E5%8D%83%E5%85%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jarvis Talk">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jarvis Talk">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ESXI开启RDM硬盘直通,让传输速率恢复千兆
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-03-23 13:38:12 / 修改时间：14:05:05" itemprop="dateCreated datePublished" datetime="2021-03-23T13:38:12+08:00">2021-03-23</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>开启esxi虚拟主机隐藏的rdm硬盘直通功能，让我们的硬盘通过千兆网口的传输速度恢复原本应该有的速率，让我们在虚拟机中建立的NAS或共享文件直接的传输速度不再受到限制。<span id="more"></span></p>
+<h4 id="一、首先开启ESXI的ssh功能"><a href="#一、首先开启ESXI的ssh功能" class="headerlink" title="一、首先开启ESXI的ssh功能"></a>一、首先开启ESXI的ssh功能</h4><img src="/images/20210323134103.png" style="zoom:50%;" />
+
+<h4 id="二、用DiskGenius软件删除你需要挂载的SATA硬盘，注：删除完保存即可，千万不要格式化分区"><a href="#二、用DiskGenius软件删除你需要挂载的SATA硬盘，注：删除完保存即可，千万不要格式化分区" class="headerlink" title="二、用DiskGenius软件删除你需要挂载的SATA硬盘，注：删除完保存即可，千万不要格式化分区"></a>二、用DiskGenius软件删除你需要挂载的SATA硬盘，注：删除完保存即可，千万不要格式化分区</h4><img src="/images/69575244.png" style="zoom: 50%;" />
+
+<h4 id="三、进入ESXI网页端后台界面查看硬盘信息"><a href="#三、进入ESXI网页端后台界面查看硬盘信息" class="headerlink" title="三、进入ESXI网页端后台界面查看硬盘信息"></a>三、进入ESXI网页端后台界面查看硬盘信息</h4><h5 id="查询需要开启RDM的硬盘，也就是我们上一步删除的那个未格式化的硬盘"><a href="#查询需要开启RDM的硬盘，也就是我们上一步删除的那个未格式化的硬盘" class="headerlink" title="查询需要开启RDM的硬盘，也就是我们上一步删除的那个未格式化的硬盘"></a>查询需要开启RDM的硬盘，也就是我们上一步删除的那个未格式化的硬盘</h5><h5 id="①点击-存储-gt-gt-设备-gt-gt-选择硬盘"><a href="#①点击-存储-gt-gt-设备-gt-gt-选择硬盘" class="headerlink" title="①点击 存储&gt;&gt;设备&gt;&gt;选择硬盘"></a>①点击 存储&gt;&gt;设备&gt;&gt;选择硬盘</h5><img src="/images/982545544141.png" style="zoom:50%;" />
+
+<h5 id="②查找未格式化硬盘标识符，括号里面这一串，我的为t10-ATA-WDC-WD20EURS2D63S48Y0-WD2DWCAZAJ063809"><a href="#②查找未格式化硬盘标识符，括号里面这一串，我的为t10-ATA-WDC-WD20EURS2D63S48Y0-WD2DWCAZAJ063809" class="headerlink" title="②查找未格式化硬盘标识符，括号里面这一串，我的为t10.ATA_____WDC_WD20EURS2D63S48Y0_________________________WD2DWCAZAJ063809"></a>②查找未格式化硬盘标识符，括号里面这一串，我的为t10.ATA_____WDC_WD20EURS2D63S48Y0_________________________WD2DWCAZAJ063809</h5><img src="/images/25825684525-1616478877421.png" style="zoom:50%;" />
+
+<h5 id="③查找ESXI系统盘的路径，点击-存储-gt-gt-数据存储-gt-gt-选择ESXI的系统盘，我这里的路径为-vmfs-volumes-5ac791f9-74172f6b-18d1-e43a6e0448e3"><a href="#③查找ESXI系统盘的路径，点击-存储-gt-gt-数据存储-gt-gt-选择ESXI的系统盘，我这里的路径为-vmfs-volumes-5ac791f9-74172f6b-18d1-e43a6e0448e3" class="headerlink" title="③查找ESXI系统盘的路径，点击 存储&gt;&gt;数据存储&gt;&gt;选择ESXI的系统盘，我这里的路径为/vmfs/volumes/5ac791f9-74172f6b-18d1-e43a6e0448e3"></a>③查找ESXI系统盘的路径，点击 存储&gt;&gt;数据存储&gt;&gt;选择ESXI的系统盘，我这里的路径为/vmfs/volumes/5ac791f9-74172f6b-18d1-e43a6e0448e3</h5><img src="/images/658439720.png" style="zoom:50%;" />
+
+<h4 id="四、登陆ESXI的SSH进行配置RDM"><a href="#四、登陆ESXI的SSH进行配置RDM" class="headerlink" title="四、登陆ESXI的SSH进行配置RDM"></a>四、登陆ESXI的SSH进行配置RDM</h4><h5 id="输入命令-回车无任何提示说明已经配置成功"><a href="#输入命令-回车无任何提示说明已经配置成功" class="headerlink" title="输入命令,回车无任何提示说明已经配置成功"></a>输入命令,回车无任何提示说明已经配置成功</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vmkfstools -z &#x2F;vmfs&#x2F;devices&#x2F;disks&#x2F;未格式化硬盘标识符 &#x2F;vmfs&#x2F;volumes&#x2F;ESXI系统盘路径&#x2F;自定义名称.vmdk</span><br></pre></td></tr></table></figure>
+
+<h5 id="我这里就把这个盘命名为DSM-vmdk"><a href="#我这里就把这个盘命名为DSM-vmdk" class="headerlink" title="我这里就把这个盘命名为DSM.vmdk"></a>我这里就把这个盘命名为DSM.vmdk</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vmkfstools -z &#x2F;vmfs&#x2F;devices&#x2F;disks&#x2F;t10.ATA_____WDC_WD20EURS2D63S48Y0_________________________WD2DWCAZAJ063809 &#x2F;vmfs&#x2F;volumes&#x2F;5ac791f9-74172f6b-18d1-e43a6e0448e3&#x2F;DSM.vmdk</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/781125878.png"></p>
+<h4 id="五、查看ESXI系统盘里是否已经有DSM-vmdk这个文件"><a href="#五、查看ESXI系统盘里是否已经有DSM-vmdk这个文件" class="headerlink" title="五、查看ESXI系统盘里是否已经有DSM.vmdk这个文件"></a>五、查看ESXI系统盘里是否已经有DSM.vmdk这个文件</h4><img src="/images/578962163855.png" style="zoom:50%;" />
+
+<p>有这个文件就说明我们已经建立成功我们的RDM直连SATA硬盘了，这样我们新建虚拟机时选择现有磁盘时选择这个文件即可。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Jarvis Talk
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://jarvistalk.cn/2021/03/23/ESXI%E5%BC%80%E5%90%AFRDM%E7%A1%AC%E7%9B%98%E7%9B%B4%E9%80%9A-%E8%AE%A9%E4%BC%A0%E8%BE%93%E9%80%9F%E7%8E%87%E6%81%A2%E5%A4%8D%E5%8D%83%E5%85%86/" title="ESXI开启RDM硬盘直通,让传输速率恢复千兆">https://jarvistalk.cn/2021/03/23/ESXI开启RDM硬盘直通-让传输速率恢复千兆/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/esxi/" rel="tag"><i class="fa fa-tag"></i> esxi</a>
+              <a href="/tags/%E7%A1%AC%E7%9B%98%E7%9B%B4%E9%80%9A/" rel="tag"><i class="fa fa-tag"></i> 硬盘直通</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/03/22/%E6%89%93%E9%80%A0%E9%AB%98%E6%80%A7%E8%83%BD%E7%BE%A4%E6%99%96NAS,H310+i58600T/" rel="prev" title="打造高性能群晖NAS,H310+i58600T">
+                  <i class="fa fa-chevron-left"></i> 打造高性能群晖NAS,H310+i58600T
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/03/24/%E9%BB%91%E7%BE%A4%E6%99%966-2-3%E5%A6%82%E4%BD%95%E5%90%AF%E7%94%A8%E6%A0%B8%E6%98%BE%E7%A1%AC%E8%A7%A3/" rel="next" title="黑群晖6.2.3如何启用核显硬解">
+                  黑群晖6.2.3如何启用核显硬解 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jarvis Talk</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.css">
+
+<script>
+NexT.utils.loadComments('.gitalk-container', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '15d571627b8463411a74',
+      clientSecret: '58b3fd4271fd42d19004a5c567e0c397e894cf48',
+      repo        : 'jarvistalk.github.io',
+      owner       : 'jarvistalk',
+      admin       : ['jarvistalk'],
+      id          : '64daf548ec1d04bac2c3cb24d6b74836',
+      proxy       : 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token',
+        language: 'zh-CN',
+      distractionFreeMode: false
+    });
+    gitalk.render(document.querySelector('.gitalk-container'));
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
