@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>最全的hexo搭建教程</title>
-    <url>/2021/03/09/%E6%9C%80%E5%85%A8%E7%9A%84hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</url>
+    <url>/posts/undefined.html</url>
     <content><![CDATA[<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。。<span id="more"></span><br>Hexo搭建步骤<br>    境搭建<br>    安装Hexo<br>    Hexo部署到github</p>
 <h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><h4 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1. 安装Git"></a>1. 安装Git</h4><p>windows：到git官网上下载,<a href="https://git-scm.com/downloads">Download git</a>,下载后会有一个Git Bash的命令行工具，以后就用这个工具来使用git。</p>
 <h4 id="2-安装nodejs"><a href="#2-安装nodejs" class="headerlink" title="2. 安装nodejs"></a>2. 安装nodejs</h4><p>Hexo是基于nodeJS编写的，所以需要安装一下nodeJs和里面的npm工具。</p>
@@ -186,7 +186,7 @@
   </entry>
   <entry>
     <title>打造高性能群晖NAS,H310+i58600T</title>
-    <url>/2021/03/22/%E6%89%93%E9%80%A0%E9%AB%98%E6%80%A7%E8%83%BD%E7%BE%A4%E6%99%96NAS,H310+i58600T/</url>
+    <url>/posts/undefined.html</url>
     <content><![CDATA[<p>前言：刚开始接触群晖nas是19年上的蜗牛的车，当时买的C款J1900的配置。买回来换了益衡电源和静音风扇，稳定运行到今年，发现性能跟不上了，于是萌生了升级配置了念头。在黄鱼上无意间看到了暴风二期j3455主板，果断买回来了。<span id="more"></span>之前蜗牛装的是3617xs半洗白，现在想尝试一下918+毕竟可以硬解，但是这款主板装918+有非常多的问题，折腾了好久还是换成了3617xs。但是心有不甘还是想追求完美。于是秉着三五年不用升级，全部用全新的打造一个高性能的群晖nas</p>
 <p>上配件价格一览表</p>
 <h5 id="CPU-i5-8600T-—-823元（全新散片）"><a href="#CPU-i5-8600T-—-823元（全新散片）" class="headerlink" title="CPU: i5-8600T —- 823元（全新散片）"></a>CPU: i5-8600T —- 823元（全新散片）</h5><p><img src="/images/20210319131704.png"></p>
@@ -238,7 +238,7 @@
   </entry>
   <entry>
     <title>ESXI开启RDM硬盘直通,让传输速率恢复千兆</title>
-    <url>/2021/03/23/ESXI%E5%BC%80%E5%90%AFRDM%E7%A1%AC%E7%9B%98%E7%9B%B4%E9%80%9A-%E8%AE%A9%E4%BC%A0%E8%BE%93%E9%80%9F%E7%8E%87%E6%81%A2%E5%A4%8D%E5%8D%83%E5%85%86/</url>
+    <url>/posts/undefined.html</url>
     <content><![CDATA[<p>开启esxi虚拟主机隐藏的rdm硬盘直通功能，让我们的硬盘通过千兆网口的传输速度恢复原本应该有的速率，让我们在虚拟机中建立的NAS或共享文件直接的传输速度不再受到限制。<span id="more"></span></p>
 <h4 id="一、首先开启ESXI的ssh功能"><a href="#一、首先开启ESXI的ssh功能" class="headerlink" title="一、首先开启ESXI的ssh功能"></a>一、首先开启ESXI的ssh功能</h4><img src="/images/20210323134103.png" style="zoom:50%;" />
 
@@ -266,7 +266,7 @@
   </entry>
   <entry>
     <title>黑群晖6.2.3如何启用核显硬解</title>
-    <url>/2021/03/24/%E9%BB%91%E7%BE%A4%E6%99%966-2-3%E5%A6%82%E4%BD%95%E5%90%AF%E7%94%A8%E6%A0%B8%E6%98%BE%E7%A1%AC%E8%A7%A3/</url>
+    <url>/posts/undefined.html</url>
     <content><![CDATA[<p>前言：黑群晖升级到6.2.3后默认不加载核显驱动的，下面介绍怎么开启核显<span id="more"></span></p>
 <p>准备工具：</p>
 <p>DS918+引导</p>
@@ -302,7 +302,7 @@
   </entry>
   <entry>
     <title>Xray手动搭建,VLESS+TCP+XTLS</title>
-    <url>/2021/03/24/Xray%E6%89%8B%E5%8A%A8%E6%90%AD%E5%BB%BA-VLESS-TCP-XTLS/</url>
+    <url>/posts/undefined.html</url>
     <content><![CDATA[<p>手动搭建xray，小白教程几分钟搞定。<span id="more"></span></p>
 <h4 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h4><p>1、VPS 一台，重置好主流的操作系统</p>
 <p>2、域名一个，解析到该VPS。</p>
