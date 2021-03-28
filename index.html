@@ -276,7 +276,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-03-28 13:50:18 / 修改时间：14:28:10" itemprop="dateCreated datePublished" datetime="2021-03-28T13:50:18+08:00">2021-03-28</time>
+      <time title="创建时间：2021-03-28 13:50:18 / 修改时间：14:30:09" itemprop="dateCreated datePublished" datetime="2021-03-28T13:50:18+08:00">2021-03-28</time>
     </span>
 
   
@@ -289,72 +289,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>Github Ac­tions 是 Mi­crosoft 收购 GitHub 后推出的 CI/CD 服务，它提供了性能配置非常不错的虚拟服务器环境（E5 2vCPU/7G RAM），基于它可以进行构建、测试、打包、部署项目。对于公开仓库可免费无时间限制的使用，且单次使用时间长达 6 个小时，这对于编译 Open­Wrt 来说是非常充足的。不过 GitHub Ac­tions 有一定的使用门槛，首先要了解如何编写 workflow 文件。不过不用担心，博主已经编写好了相关的 work­flow 文件模版，只需要按照教程的步骤来操作即可。</p>
-<h4 id="方案特点"><a href="#方案特点" class="headerlink" title="方案特点"></a>方案特点</h4><ul>
-<li>免费</li>
-<li>一键快速编译</li>
-<li>定时自动编译</li>
-<li>客制化编译</li>
-<li>并发编译（可同时进行20个编译任务）</li>
-<li>无需搭建编译环境（在线<code>make menuconfig</code>生成配置文件)</li>
-<li>无需消耗自己的计算机与服务器的计算资源（性感E5在线编译）</li>
-<li>无需担心磁盘空间不足（近60G磁盘空间）</li>
-<li>无需使用清理文件（内核更新不怕 boom ）</li>
-<li>编译速度快（编译时间1-2小时）</li>
-<li>编译成功率提升200%（万兆自由网络环境）</li>
-<li>全新环境（杜绝编译环境不干净导致编译失败）</li>
-</ul>
-<blockquote>
-<p>本解决方案是一个开放平台，任何人都可以基于此打造自己专属的编译方案。</p>
-</blockquote>
-<h4 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h4><p><a target="_blank" rel="noopener" href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL1AzVEVSWC9BY3Rpb25zLU9wZW5XcnQ">https://github.com/P3TERX/Actions-OpenWrt</a></p>
-<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29t">GitHub</a> 账号</li>
-</ul>
-<h4 id="基础使用"><a href="#基础使用" class="headerlink" title="基础使用"></a>基础使用</h4><p>首先你必须要熟悉整个 Open­Wrt 的编译过程，这会让你非常容易的理解如何使用 GitHub Ac­tions 进行编译，即使你没有成功过。因为实际上本地编译近 90% 失败的原因是因为网络问题导致的，中国大陆特色，咱也不敢多说。GitHub Ac­tions 服务器由 Mi­crosoft Azure 提供，拥有万兆带宽，可以使编译成功率大大提升。</p>
-<ul>
-<li>在自己搭建编译环境中使用 <a target="_blank" rel="noopener" href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL2Nvb2xzbm93d29sZi9sZWRl">Lean’s OpenWrt</a> 源码生成<code>.config</code>文件。（或使用直接 SSH 连接到 Actions 进行操作，后面有说明。）</li>
-<li>进入 <a target="_blank" rel="noopener" href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL1AzVEVSWC9BY3Rpb25zLU9wZW5XcnQ">P3TERX/Actions-OpenWrt</a> 项目页面，点击页面中的 <a target="_blank" rel="noopener" href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL1AzVEVSWC9BY3Rpb25zLU9wZW5XcnQvZ2VuZXJhdGU">Use this template</a> （使用这个模版）按钮。</li>
-</ul>
-<img src="/images/20200201183633.png" style="zoom: 80%;" />
-
-<ul>
-<li>填写仓库名称，然后点击<code>Create repository from template</code>（从模版创建储存库）按钮。</li>
-</ul>
-<img src="/images/20200201183634.png" style="zoom:80%;" />
-
-<ul>
-<li>经过几秒钟的等待，页面会跳转到新建的仓库，内容和我的项目是相同的，然后点击diy-part1.sh</li>
-</ul>
-<p><img src="/images/20210328140335.png"></p>
-<ul>
-<li>点击右侧的编辑按钮，去掉第14行前面的注释#号</li>
-</ul>
-<p><img src="/images/20210328140542.png"></p>
-<ul>
-<li>翻到页面最下方，点击<code>Commit changes</code>（提交新文件）按钮。</li>
-</ul>
-<p><img src="/images/20210328141034.png"></p>
-<ul>
-<li>在 Actions 页面选择<code>Build OpenWrt</code>，然后点击<code>Run Workflow</code>按钮，SSH 连接需把<code>SSH connection to Actions</code>的值改为<code>true</code>。即可开始编译</li>
-</ul>
-<p><img src="/images/20201011212837.png"></p>
-<ul>
-<li>在 Actions 日志页面等待执行到<code>SSH connection to Actions</code>步骤，会出现下面的信息，点击url链接</li>
-</ul>
-<p><img src="/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20210328141810.png"></p>
-<ul>
-<li><p>在浏览器中打开使用网页终端。（网页终端可能会遇到黑屏的情况，按 <code>Ctrl</code>+<code>C</code> 即可）然后输入下面代码回车</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd openwrt &amp;&amp; make menuconfig</span><br></pre></td></tr></table></figure></li>
-<li><p>然后就出现了熟悉的菜单页面</p>
-</li>
-<li><p>完成后按<code>Ctrl</code>+<code>D</code>组合键或执行<code>exit</code>命令退出，后续编译工作将自动进行。</p>
-</li>
-<li><p>最后经过一两个小时的等待，不出意外你就可以在 Actions 页面看到已经打包好的固件目录压缩包。</p>
-</li>
-</ul>
-<p><img src="/images/20200201183636.png"></p>
-
+          <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>Github Ac­tions 是 Mi­crosoft 收购 GitHub 后推出的 CI/CD 服务，它提供了性能配置非常不错的虚拟服务器环境（E5 2vCPU/7G RAM），基于它可以进行构建、测试、打包、部署项目。对于公开仓库可免费无时间限制的使用，且单次使用时间长达 6 个小时，这对于编译 Open­Wrt 来说是非常充足的。不过 GitHub Ac­tions 有一定的使用门槛，首先要了解如何编写 workflow 文件。不过不用担心，博主已经编写好了相关的 work­flow 文件模版，只需要按照教程的步骤来操作即可。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/a02e4232.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
