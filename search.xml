@@ -414,14 +414,14 @@
 <blockquote>
 <p>本解决方案是一个开放平台，任何人都可以基于此打造自己专属的编译方案。</p>
 </blockquote>
-<h4 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h4><p><a href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL1AzVEVSWC9BY3Rpb25zLU9wZW5XcnQ">https://github.com/P3TERX/Actions-OpenWrt</a></p>
+<h4 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h4><p><a href="https://github.com/P3TERX/Actions-OpenWrt">https://github.com/P3TERX/Actions-OpenWrt</a></p>
 <h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><ul>
-<li><a href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29t">GitHub</a> 账号</li>
+<li><a href="https://github.com/">GitHub</a> 账号</li>
 </ul>
 <h4 id="基础使用"><a href="#基础使用" class="headerlink" title="基础使用"></a>基础使用</h4><p>首先你必须要熟悉整个 Open­Wrt 的编译过程，这会让你非常容易的理解如何使用 GitHub Ac­tions 进行编译，即使你没有成功过。因为实际上本地编译近 90% 失败的原因是因为网络问题导致的，中国大陆特色，咱也不敢多说。GitHub Ac­tions 服务器由 Mi­crosoft Azure 提供，拥有万兆带宽，可以使编译成功率大大提升。</p>
 <ul>
-<li>在自己搭建编译环境中使用 <a href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL2Nvb2xzbm93d29sZi9sZWRl">Lean’s OpenWrt</a> 源码生成<code>.config</code>文件。（或使用直接 SSH 连接到 Actions 进行操作，后面有说明。）</li>
-<li>进入 <a href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL1AzVEVSWC9BY3Rpb25zLU9wZW5XcnQ">P3TERX/Actions-OpenWrt</a> 项目页面，点击页面中的 <a href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL1AzVEVSWC9BY3Rpb25zLU9wZW5XcnQvZ2VuZXJhdGU">Use this template</a> （使用这个模版）按钮。</li>
+<li>在自己搭建编译环境中使用 <a href="https://github.com/coolsnowwolf/lede">Lean’s OpenWrt</a> 源码生成<code>.config</code>文件。（或使用直接 SSH 连接到 Actions 进行操作，后面有说明。）</li>
+<li>进入 <a href="https://github.com/P3TERX/Actions-OpenWrt">P3TERX/Actions-OpenWrt</a> 项目页面，点击页面中的 <strong>Use this template</strong>（使用这个模版）按钮。</li>
 </ul>
 <img src="/images/20200201183633.png" style="zoom: 80%;" />
 
