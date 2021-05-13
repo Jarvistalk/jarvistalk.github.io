@@ -467,4 +467,73 @@
         <tag>openwrt</tag>
       </tags>
   </entry>
+  <entry>
+    <title>nuc8i5beh macOS Big Sur 11.3.1 Installer for OpenCore 0.6.9原版镜像</title>
+    <url>/posts/1d815ba6.html</url>
+    <content><![CDATA[<p>nuc8i5beh macOS Big Sur 11.3.1 Installer for OpenCore 0.6.9原版镜像<span id="more"></span></p>
+<img src="/images/BigSur.png" style="zoom:50%;" />
+
+<h4 id="镜像特点："><a href="#镜像特点：" class="headerlink" title="镜像特点："></a>镜像特点：</h4><p>OpenCore <code>v0.6.9</code> 正式版，支持GUI图形引导界面</p>
+<p>支持板载无线网卡和蓝牙，不支持隔空投送，需要完美的，请更换苹果网卡</p>
+<p>白果网卡的需要把板载无线网卡和蓝牙驱动去掉</p>
+<img src="/images/3552852-1620873535872.png" style="zoom: 50%;" />
+
+<p>驱动更新</p>
+<ul>
+<li>更新<code>Lilu</code> <code>v1.5.3</code></li>
+<li>更新<code>WhatEverGreen</code> <code>v1.4.9</code></li>
+<li>更新<code>AppleALC</code> <code>v1.6.0</code></li>
+<li>更新<code>VirtualSMC</code> <code>v1.2.3</code></li>
+<li>更新<code>FakePCIID</code> <code>v1.3.15</code></li>
+<li>新增<code>IntelBluetoothFirmware</code> <code>v1.1.2</code></li>
+<li>更新<code>IntelMausiEthernet</code> <code>v1.0.6</code> </li>
+<li>更新<code>itlwm</code> <code>v2.0.0</code></li>
+</ul>
+<img src="/images/3528552.png" style="zoom:50%;" />
+
+<h4 id="BIOS-设置-可以不进行-BIOS-更新操作"><a href="#BIOS-设置-可以不进行-BIOS-更新操作" class="headerlink" title="BIOS 设置 (可以不进行 BIOS 更新操作)"></a>BIOS 设置 (可以不进行 BIOS 更新操作)</h4><ol>
+<li>将下载好的 BIOS56 文件里的【<code>BE0085.bio</code>】拷贝到一个空白 U 盘根目录</li>
+<li>启动 nuc，按【<code>F7</code>】，选择 BE0085.bio，去更新 BIOS</li>
+<li>更新后，再次启动 nuc，按【<code>F2</code>】，进入 BIOS 设置界面</li>
+<li>BIOS 设置如下：<ul>
+<li>开机时，连续点按 F2 进入 BIOS，为了避免之前有其他不合适的改动，建议先按 F9 重置 BIOS 默认设置。</li>
+<li>Boot-&gt;Boot Priority-&gt;Legacy Boot Priority-&gt; « Legacy Boot » ：禁用</li>
+<li>Boot-&gt;Boot Configuration-&gt;</li>
+<li>UEFI Boot-&gt;« Fast Boot »： 禁用</li>
+<li>UEFI Boot-&gt;« Boot USB Devices First » ： 启用</li>
+<li>UEFI Boot-&gt;« Boot Network Devices Last » ：启用</li>
+<li>Boot Devices-&gt;«Network Boot» ：设置为 « Disable »</li>
+<li>Boot-&gt;Secure Boot-&gt; « Secure Boot » ：禁用</li>
+<li>Security-&gt;Security Features-&gt; « Inter VT for directed I/VO (VT-d) » ： 禁用</li>
+<li>Power-&gt;Secondary Power Settings-&gt; « Wake on LAN from S4/S5 » ： 设置为 « Stay Off »</li>
+<li>以下为使用白果拆机卡的用户设置：</li>
+<li>Devices-&gt;Onboard Devices-&gt; « WLAN » 和 « Bluetooth » ：禁用</li>
+</ul>
+</li>
+<li>按【<code>F10</code>】保存并退出</li>
+</ol>
+<h4 id="板载无线网卡和蓝牙的问题"><a href="#板载无线网卡和蓝牙的问题" class="headerlink" title="板载无线网卡和蓝牙的问题"></a>板载无线网卡和蓝牙的问题</h4><ul>
+<li><a href="http://bbs.pcbeta.com/viewthread-1848662-1-1.html">黑苹果使用自带网卡无线教程</a></li>
+<li><a href="https://github.com/OpenIntelWireless/IntelBluetoothFirmware">黑苹果蓝牙驱动</a></li>
+</ul>
+<p><strong>注意：更换三码！更换三码！更换三码！</strong></p>
+<h4 id="镜像下载链接"><a href="#镜像下载链接" class="headerlink" title="镜像下载链接"></a>镜像下载链接</h4><p>天翼云盘：[请点击下载]</p>
+<p>个人云盘：[请点击下载]</p>
+<p>校验md5值：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">md5 macOS\ Big\ Sur\ 11.3.1\ Installer\ for\ OpenCore\ 0.6.9.dmg</span><br><span class="line">MD5 (macOS Big Sur 11.3.1 Installer for OpenCore 0.6.9.dmg) &#x3D; 4b5ab55d0405271c6e10e0389cec55ce</span><br></pre></td></tr></table></figure>
+
+<p>镜像制作：</p>
+<p>下载<a href="https://etcher.io/">etcher</a>，打开镜像，选择U盘，点击Flash即可。<em><strong>Windows10需要以管理员权限运行</strong></em></p>
+<img src="/images/etcher.png" style="zoom:50%;" />
+
+]]></content>
+      <tags>
+        <tag>黑苹果</tag>
+        <tag>nuc</tag>
+        <tag>nuc8i5beh</tag>
+        <tag>big sur</tag>
+        <tag>镜像</tag>
+        <tag>下载</tag>
+      </tags>
+  </entry>
 </search>
