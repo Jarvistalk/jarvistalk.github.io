@@ -476,7 +476,7 @@
 <h4 id="镜像特点："><a href="#镜像特点：" class="headerlink" title="镜像特点："></a>镜像特点：</h4><p>OpenCore <code>v0.6.9</code> 正式版，支持GUI图形引导界面</p>
 <p>支持板载无线网卡和蓝牙，不支持隔空投送，需要完美的，请更换苹果网卡</p>
 <p>白果网卡的需要把板载无线网卡和蓝牙驱动去掉</p>
-<img src="/images/3552852-1620873535872.png" style="zoom: 33%;" />
+<img src="/images/3552852-1620873535872.png" style="zoom: 50%;" />
 
 <p>驱动更新</p>
 <ul>
@@ -489,7 +489,7 @@
 <li>更新<code>IntelMausiEthernet</code> <code>v1.0.6</code> </li>
 <li>更新<code>itlwm</code> <code>v2.0.0</code></li>
 </ul>
-<img src="/images/3528552.png" style="zoom: 33%;" />
+<img src="/images/3528552.png" style="zoom: 50%;" />
 
 <h4 id="BIOS-设置-可以不进行-BIOS-更新操作"><a href="#BIOS-设置-可以不进行-BIOS-更新操作" class="headerlink" title="BIOS 设置 (可以不进行 BIOS 更新操作)"></a>BIOS 设置 (可以不进行 BIOS 更新操作)</h4><ol>
 <li>将下载好的 BIOS56 文件里的【<code>BE0085.bio</code>】拷贝到一个空白 U 盘根目录</li>
@@ -524,7 +524,7 @@
 
 <p>镜像制作：</p>
 <p>下载<a href="https://etcher.io/">etcher</a>，打开镜像，选择U盘，点击Flash即可。<em><strong>Windows10需要以管理员权限运行</strong></em></p>
-<img src="/images/etcher.png" style="zoom: 33%;" />
+<img src="/images/etcher.png" style="zoom: 50%;" />
 
 ]]></content>
       <tags>
