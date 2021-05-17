@@ -48,7 +48,7 @@
 <p>DS918+(6.2.3-25426)固件</p>
 <p>U盘一个</p>
 <p>U盘芯片检测工具ChipGenius</p>
-<p>这里我打包了所需工具供大家<a href="https://jvs.i55.me:5001/sharing/EiTH5SJf5">下载</a>，引导已替换了驱动包可直接使用</p>
+<p>这里我打包了所需工具供大家<a href="https://cloud.189.cn/t/IRNzyafaiQru">下载</a>，引导已替换了驱动包可直接使用</p>
 <h5 id="制作U盘引导"><a href="#制作U盘引导" class="headerlink" title="制作U盘引导"></a>制作U盘引导</h5><p>1.打开U盘芯片检测工具ChipGenius查看U盘的VID和PID</p>
 <img src="/images/20210322133736.png" style="zoom: 33%;" />
 
@@ -181,7 +181,7 @@
 <p>DS918+引导</p>
 <p>驱动包extra.lzma和extra2.lzma</p>
 <p>osfmount工具</p>
-<p>这里打包了供大家<a href="https://jvs.i55.me:5001/sharing/oVMleLbrI">下载</a></p>
+<p>这里打包了供大家<a href="https://cloud.189.cn/t/3uqe6vNzE3Ez">下载</a></p>
 <p>1、打开osfmount工具，选择mount new  选择引导文件</p>
 <img src="/images/20210324123158.png" style="zoom: 50%;" />
 
@@ -517,10 +517,9 @@
 <li><a href="https://github.com/OpenIntelWireless/IntelBluetoothFirmware">黑苹果蓝牙驱动</a></li>
 </ul>
 <p><strong>注意：更换三码！更换三码！更换三码！</strong></p>
-<h4 id="镜像下载链接"><a href="#镜像下载链接" class="headerlink" title="镜像下载链接"></a>镜像下载链接</h4><p>天翼云盘：[请点击下载]</p>
-<p>个人云盘：[<a href="https://jvs.i55.me:5001/sharing/V7WfdDGP6">请点击下载</a>]</p>
+<h4 id="镜像下载链接"><a href="#镜像下载链接" class="headerlink" title="镜像下载链接"></a>镜像下载链接</h4><p>天翼云盘：[<a href="https://cloud.189.cn/t/7nURJrIvemIf">请点击下载</a>]</p>
 <p>校验md5值：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">md5 macOS\ Big\ Sur\ 11.3.1\ Installer\ for\ OpenCore\ 0.6.9.dmg</span><br><span class="line">MD5 (macOS Big Sur 11.3.1 Installer for OpenCore 0.6.9.dmg) &#x3D; 4b5ab55d0405271c6e10e0389cec55ce</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">md5 macOS\ Big\ Sur\ 11.3.1\ Installer\ for\ OpenCore\ 0.6.9.dmg</span><br><span class="line">MD5 (macOS Big Sur 11.3.1 Installer for OpenCore 0.6.9.dmg) &#x3D; 0054b79819871ff05780ed068ac9e931</span><br></pre></td></tr></table></figure>
 
 <p>镜像制作：</p>
 <p>下载<a href="https://etcher.io/">etcher</a>，打开镜像，选择U盘，点击Flash即可。<em><strong>Windows10需要以管理员权限运行</strong></em></p>
